@@ -34,3 +34,12 @@ node .\bin\etu -i yourProject
 ```
 
 ## mpvue to uniapp
+
+
+参考资料：
+
+- [微信小程序文档](https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html)
+- [vue](https://cn.vuejs.org/v2/guide/forms.html)
+- [wepy](https://wepyjs.github.io/wepy-docs/)
+- [uni-app](https://uniapp.dcloud.io/)
+- [[AST实战]从零开始写一个wepy转VUE的工具](https://juejin.im/post/5c877cd35188257e3b14a1bc#heading-7)
