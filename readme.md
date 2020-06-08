@@ -14,11 +14,12 @@
 [文档](./wepy-to-uniapp/wepy-to-uniapp.md)
 
 - [ ] 模板标签转换：
-  - [x] 把view转换成div，
+  <!-- - [x] 把view转换成div，
   - [ ] 把image标签转换成img， 现在处在`<img></img>`还要改一下
   - [ ] navigator
   - [ ] scroll-view
-  - [ ] swiper
+  - [ ] swiper --> 原生支持
+    <!-- - [ ] block -->
   - [ ] repeat
   - [ ] import
 - [x] 模板逻辑判断：wx:if="{{info.label}}" 转换成 v-if="info.label"

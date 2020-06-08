@@ -38,7 +38,7 @@ async function styleHandle(v, filePath, filename, targetFilePath) {
                 let filePath = pos;
                 filePath = pathUtil.relativePath(filePath, global.miniprogramRoot, fileDir);
 
-                filePath = filePath.replace(/\.wxss/i, ".css");
+                // filePath = filePath.replace(/\.wxss/i, ".css");
 
                 //虽可用path.posix.前缀来固定为斜杠，然而改动有点小多，这里只单纯替换一下
                 return '@import "' + filePath + '";';
@@ -69,7 +69,7 @@ async function styleHandle(v, filePath, filename, targetFilePath) {
                                 let staticPath = path.join(global.miniprogramRoot, "static");
 
                                 //当前处理文件所在目录
-                                let wxssFolder = path.dirname(file_wxss);
+                                let wxssFolder = path.dirname('file_wxss');
                                 var pFolderName = pathUtil.getParentFolderName(src);
                                 // console.log("pFolderName ", pFolderName)
                                 var fileName = path.basename(src);

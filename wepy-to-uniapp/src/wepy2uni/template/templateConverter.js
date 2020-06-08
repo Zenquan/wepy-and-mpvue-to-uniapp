@@ -1,7 +1,8 @@
 //html标签替换规则，可以添加更多
 const tagConverterConfig = {
-	'view': 'div',
-	'image': 'img'
+	// 'view': 'div',
+	// 'image': 'img',
+	'repeat': 'view'
 }
 //属性替换规则，也可以加入更多
 const attrConverterConfig = {
@@ -50,25 +51,25 @@ const attrConverterConfig = {
 	'bindtap': {
 		key: '@click',
 		value: (str) => {
-			return str.replace(/{{ ?(.*?) ?}}/, '$1').replace(/\"/g, "'")
+			return str.replace(/{{ ?(.*?) ?}}/g, '$1').replace(/\"/g, "'")
 		}
 	},
 	'bind:tap': {
 		key: '@click',
 		value: (str) => {
-			return str.replace(/{{ ?(.*?) ?}}/, '$1').replace(/\"/g, "'")
+			return str.replace(/{{ ?(.*?) ?}}/g, '$1').replace(/\"/g, "'")
 		}
 	},
 	'@tap': {
 		key: '@click',
 		value: (str) => {
-			return str.replace(/{{ ?(.*?) ?}}/, '$1').replace(/\"/g, "'")
+			return str.replace(/{{ ?(.*?) ?}}/g, '$1').replace(/\"/g, "'")
 		}
 	},
 	'catchtap': {
 		key: '@click.stop',
 		value: (str) => {
-			return str.replace(/{{ ?(.*?) ?}}/, '$1').replace(/\"/g, "'")
+			return str.replace(/{{ ?(.*?) ?}}/g, '$1').replace(/\"/g, "'")
 		}
 	},
 	'bindinput': {
@@ -80,7 +81,7 @@ const attrConverterConfig = {
 	'catch:tap': {
 		key: '@click.native.stop',
 		value: (str) => {
-			return str.replace(/{{ ?(.*?) ?}}/, '$1').replace(/\"/g, "'")
+			return str.replace(/{{ ?(.*?) ?}}/g, '$1').replace(/\"/g, "'")
 		}
 	},
 }
@@ -193,6 +194,13 @@ const templateConverter = function (ast) {
 					 *		<view wx:for-items="{{item.child}}" wx:key="{{index}}" data-id="{{item.id}}" wx:for-item="item">
 					 *		</view>
 					 * </view>
+					 * 
+					 * 情况五：
+					 * <repeat for="{{freeList}}" index="index" item="item" key="index">
+					 *		<view class="item-wrap" @tap="toFreePlaceMsg({{item.activityId}})">
+					 *	  </view>
+					 * </repeat>
+					 * 
 					 * 解析规则：
 					 * 1.wx:for同上
 					 * 2.遍历到wx:for-items这一层时，如果有wx:for-item属性，且parent含有wx:for时，将wx:for-item的值设置为parent的wx:for遍历出的子元素的别称
@@ -323,6 +331,9 @@ const templateConverter = function (ast) {
 			}
 
 			node.attribs = attrs;
+			if (node.attribs.hasOwnProperty("key")) delete node.attribs["key"];
+			if (node.attribs.hasOwnProperty("index")) delete node.attribs["index"];
+			if (node.attribs.hasOwnProperty("item")) delete node.attribs["item"];
 		}
 		//因为是树状结构，所以需要进行递归
 		if (node.children) {
