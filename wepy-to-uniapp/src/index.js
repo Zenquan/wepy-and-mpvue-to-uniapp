@@ -51,7 +51,7 @@ function traverseFolder(folder, miniprogramRoot, targetSrcFolder, callback) {
 							case ".js":
 								fs.copySync(fileDir, newfileDir);
 								let data_js = fs.readFileSync(fileDir, 'utf8');
-								data_js = data_js.replace(/import\s+wepy\s+from\s+['"]wepy['"];?/gm, '');
+								// data_js = data_js.replace(/import\s+wepy\s+from\s+['"]wepy['"];?/gm, '');
 								fs.writeFile(newfileDir, data_js, () => {
 									console.log(`Convert ${path.relative(global.targetFolder, newfileDir)} success!`);
 								});

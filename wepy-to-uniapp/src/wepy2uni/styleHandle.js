@@ -58,10 +58,11 @@ async function styleHandle(v, filePath, filename, targetFilePath) {
                 let src = args[1] + "." + args[2];
 
                 let reg = /\.(jpg|jpeg|gif|svg|png)$/;  //test时不能加/g
+                let regt = /\@\{imgurl|imgurl2\}/
 
                 // //image标签，处理src路径
                 //忽略网络素材地址，不然会转换出错
-                if (src && !utils.isURL(src) && reg.test(src)) {
+                if (src && !utils.isURL(src) && reg.test(src) && !regt.test(src)) {
                         if (global.isVueAppCliMode) {
                                 //
                         } else {

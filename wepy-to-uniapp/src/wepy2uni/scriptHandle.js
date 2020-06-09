@@ -90,7 +90,7 @@ const componentTemplateBuilder = function (ast, vistors, filePath, isApp) {
         METHODS: arrayToObject(vistors.methods.getData(), "methods"),
         COMPUTED: arrayToObject(vistors.computed.getData(), "computed"),
         WATCH: arrayToObject(vistors.watch.getData(), "watch"),
-        // LIFECYCLE: arrayToObject(vistors.lifeCycle.getData(), "lifeCycle"),
+        // LIFECYCLE: arrayToObject(vistors.lifeCycle.get(), "lifeCycle"),
     });
 
     //获取配置
