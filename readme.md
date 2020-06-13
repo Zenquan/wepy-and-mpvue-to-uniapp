@@ -22,6 +22,10 @@
     <!-- - [ ] block -->
   - [ ] repeat
   - [ ] import
+  - [ ] 去掉data: {}
+  - [ ] :@
+  - [ ] fillter引入
+  - [ ] mixins改写
 - [x] 模板逻辑判断：wx:if="{{info.label}}" 转换成 v-if="info.label"
 - [x] 模板循环：wx:for="{{info.label}}" 转换成v-for="(item,key) in info.label"
 - [x] 事件绑定：@tap="follow" 转换成 @click="follow"

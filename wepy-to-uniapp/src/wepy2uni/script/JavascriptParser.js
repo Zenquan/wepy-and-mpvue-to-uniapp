@@ -15,7 +15,7 @@ class JavascriptParser {
    */
   beforeParse(code) {
     return code.replace(/this\.\$parent/gm, 'getApp()')
-      .replace(/this\.\$apply\(\);?/gm, '')   
+      .replace(/\.\$apply\(\);?/gm, '')   
     // .replace(/super\(\);?/gm, '')
     // .replace(/import\s+wepy\s+from\s+['"]wepy['"];?/gm, '')
     // .replace(/import\s+['"](wepy.*?)['"];?/gm, '')
